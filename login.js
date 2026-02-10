@@ -1,3 +1,44 @@
+function getBrandFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get("brand") || "nuxit").toLowerCase(); // default = nuxit
+}
+
+const BRANDING = {
+  nuxit: {
+    title: "Espace clients | NUXIT",
+    img: "https://planet.nuxit.com/images/logos/Nuxit-fr-white.png",
+    alt: "Espace clients Nuxit",
+  },
+  magic: {
+    title: "Espace clients | MAGIC",
+    img: "https://planet.nuxit.com/images/logos/Magic-fr-white.png",
+    alt: "Espace clients Magic",
+  },
+  icow: {
+    title: "Espace clients | ICOW",
+    img: "https://www.icow-systems.com/wp-content/uploads/2024/07/Icow-1-1.png",
+    alt: "Espace clients | iCow",
+  },
+};
+
+function applyBranding() {
+  const brand = getBrandFromUrl();
+  const cfg = BRANDING[brand] || BRANDING.nuxit;
+
+  // page title
+  document.title = cfg.title;
+
+  // logo + alt
+  const imgEl = document.getElementById("brandImage");
+  if (imgEl) {
+    imgEl.src = cfg.img;
+    imgEl.alt = cfg.alt;
+  }
+
+  return brand;
+}
+
+const brand = applyBranding();
 
 // hide "heading"
 const heading = document.querySelector("div#api .heading");
@@ -54,4 +95,5 @@ if (entryItems.length > 0) {
   accessLinksDiv.appendChild(newLink);
   lastEntryItem.insertAdjacentElement("afterend", accessLinksDiv);
   
+
 }
