@@ -42,19 +42,23 @@ const brand = applyBranding();
 
 // hide "heading"
 const heading = document.querySelector("div#api .heading");
-heading.style.display = "none";
+if(heading){
+	heading.style.display = "none";
+}
 
 // new content in ".intro" 
 const intro = document.querySelector("div#api form .intro");
-intro.innerHTML = `
+if(intro){
+	intro.innerHTML = `
   <h2 aria-level="1" class="text-celeste-primary fw-semibold fs-2 mb-3">
     Connexion
   </h2>
 `;
+}
 
-document.querySelector("div#api form .error p").classList.add("mb-0");
+document.querySelector("div#api form .error p")?.classList.add("mb-0");
 document.querySelector("div#api form .entry .entry-item")?.classList.add("pt-0");
-document.querySelector("#localAccountForm").classList.add("mw-75", "mx-auto");
+document.querySelector("#localAccountForm")?.classList.add("mw-75", "mx-auto");
 
 // set link "forgotPassword"
 const forgotPasswordLink = document.getElementById("forgotPassword");
@@ -70,7 +74,7 @@ if (passwordInput) {
   }
 }
 
-// add 2 new links
+// add retrieve id link
 const entryContainer = document.querySelector(".entry");
 const entryItems = entryContainer.querySelectorAll(".entry-item");
 if (entryItems.length > 0) {
@@ -88,9 +92,7 @@ if (entryItems.length > 0) {
   newLink.style.marginTop = "8px";
   newLink.addEventListener("click", (event) => {
     event.preventDefault();
-    if (oldSiteSection) oldSiteSection.style.display = "none";
     if (retrieveIdSection) retrieveIdSection.style.display = "block";
-    document.querySelector("#retrieve-old-site-link").style.display = "none";
   });
   accessLinksDiv.appendChild(newLink);
   lastEntryItem.insertAdjacentElement("afterend", accessLinksDiv);
