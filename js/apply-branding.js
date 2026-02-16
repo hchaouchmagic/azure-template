@@ -11,7 +11,7 @@ function applyBranding() {
             imgEl.alt = brandConfig.alt;
             return brandConfig;
         }
-
+        // set link "forgotPassword"
         const forgotPasswordLink = document.getElementById("forgotPassword");
         if (forgotPasswordLink) {
             //redirect URL after password reset (mostly login page)

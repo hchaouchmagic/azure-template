@@ -18,11 +18,6 @@ document.querySelector("div#api form .error p")?.classList.add("mb-0");
 document.querySelector("div#api form .entry .entry-item")?.classList.add("pt-0");
 document.querySelector("#localAccountForm")?.classList.add("mw-75", "mx-auto");
 
-// set link "forgotPassword"
-const forgotPasswordLink = document.getElementById("forgotPassword");
-if (forgotPasswordLink) {
-    forgotPasswordLink.href = "https://clientsceleste.b2clogin.com/b33cf7f3-86b8-4845-be04-036de31663c8/oauth2/v2.0/authorize?p=B2C_1_reset_password&client_id=882fa9fa-115e-4d29-a14a-faff9e7edcc8&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fespace-clients.celeste.fr&scope=openid&response_type=id_token&prompt=login";
-}
 // Replace the input "password" to place it first in its parent (for tabulation)
 const passwordInput = document.querySelector("#password");
 if (passwordInput) {
