@@ -18,6 +18,15 @@ document.querySelector("div#api form .error p")?.classList.add("mb-0");
 document.querySelector("div#api form .entry .entry-item")?.classList.add("pt-0");
 document.querySelector("#localAccountForm")?.classList.add("mw-75", "mx-auto");
 
+// set link "forgotPassword"
+const forgotPasswordLink = document.getElementById("forgotPassword");
+if (forgotPasswordLink) {
+    //redirect URL after password reset (mostly login page)
+    //now redirects to localhost but needs to be set dynamically via branding or domain based
+    const redirectUri = "http://localhost:8080/auth/b2c";
+    forgotPasswordLink.href = "https://clientsceleste.b2clogin.com/b33cf7f3-86b8-4845-be04-036de31663c8/oauth2/v2.0/authorize?p=B2C_1_Planet_icow_reset_password&client_id=c174dd34-b863-4a7c-a308-1eb08471e6a0&nonce=defaultNonce&redirect_uri="+redirectUri+"&prompt=login";
+}
+
 // Replace the input "password" to place it first in its parent (for tabulation)
 const passwordInput = document.querySelector("#password");
 if (passwordInput) {
