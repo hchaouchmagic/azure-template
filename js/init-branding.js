@@ -22,9 +22,9 @@ function initBrand() {
   const params = new URLSearchParams(window.location.search);
   const brand = params.get("brand");
 
-  localStorage.removeItem("brand");
   //brand from param
-    if (brand && BRANDING[brand.toLowerCase()]) {
+  if (brand && BRANDING[brand.toLowerCase()]) {
+        localStorage.removeItem("brand");
         localStorage.setItem("brand", JSON.stringify(BRANDING[brand.toLowerCase()]));
     }
   //default = nuxit keep the page as it is
