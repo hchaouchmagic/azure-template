@@ -65,10 +65,10 @@ if (entryItems.length > 0) {
   const brandSpan = document.getElementById("brandName");
   if(brandParam){
     if (brandSpan) {
-        brandSpan.innerText = brandParam.replace(/\b\w/g, char => char.toUpperCase());
+        brandSpan.innerHTML = brandParam.replace(/\b\w/g, char => char.toUpperCase());
     }
   }else{
-    brandSpan.innerText = "Nuxit";
+    brandSpan.innerHTML = "Nuxit";
   }
   
 
