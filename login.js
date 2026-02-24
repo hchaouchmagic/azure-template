@@ -59,6 +59,17 @@ if (entryItems.length > 0) {
   });
   accessLinksDiv.appendChild(newLink);
   lastEntryItem.insertAdjacentElement("afterend", accessLinksDiv);
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const brandParam = queryParams.get("brand");
+  const brandSpan = document.getElementById("brandName");
+  if(brandParam){
+    if (brandSpan) {
+        brandSpan.innerText = brandParam.replace(/\b\w/g, char => char.toUpperCase());
+    }
+  }else{
+    brandSpan.innerText = "Nuxit";
+  }
   
 
 }
